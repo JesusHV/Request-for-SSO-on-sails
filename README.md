@@ -23,11 +23,10 @@ var opts = {
 },
 uri = 'http://service-oauth.com/refreshtoken';
 
-RefreshTokenOA2(uri, opts, function (err, resutl, info){
-	//
+sso.RefreshTokenOA2(uri, opts, function (err, resutl, info){
+  //
 })
 ```
-
 ### Request sample
 
 - https://github.com/request/request
@@ -42,13 +41,13 @@ var opts = {
     postambleCRLF: true,
     uri: 'http://service.com/upload',
     headers: {
-    	'User-Agent': 'request'
-  	},
-  	agentOptions: {
+      'User-Agent': 'request'
+    },
+    agentOptions: {
+        //Cretificados
         cert: fs.readFileSync(certFile),
         key: fs.readFileSync(keyFile),
-        // Or use `pfx` property replacing `cert` and `key` when using private key, certificate and CA certs in PFX or PKCS12 format:
-        // pfx: fs.readFileSync(pfxFilePath),
+
         passphrase: 'password',
         securityOptions: 'SSL_OP_NO_SSLv3'
     },
@@ -73,7 +72,7 @@ var opts = {
     }
   }
 
-getTokenURL(opts, function (err, resutl, info){
-	//
+sso.getTokenURL(opts, function (err, resutl, info){
+  //
 })
 ```
