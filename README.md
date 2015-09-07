@@ -23,7 +23,7 @@ var opts = {
 },
 uri = 'http://service-oauth.com/refreshtoken';
 
-sso.RefreshTokenOA2(uri, opts, function (err, resutl, info){
+sso.RefreshTokenOA2(uri, opts, function (err, result, info){
   //
 })
 ```
@@ -40,9 +40,11 @@ var opts = {
     preambleCRLF: true,
     postambleCRLF: true,
     uri: 'http://service.com/upload',
+    // Headers
     headers: {
       'User-Agent': 'request'
     },
+    // Agent options
     agentOptions: {
         //Cretificados
         cert: fs.readFileSync(certFile),
@@ -51,6 +53,7 @@ var opts = {
         passphrase: 'password',
         securityOptions: 'SSL_OP_NO_SSLv3'
     },
+    // Enviar multiparte
     multipart: [
       {
         'content-type': 'application/json',
@@ -59,7 +62,7 @@ var opts = {
       { body: 'I am an attachment' },
       { body: fs.createReadStream('image.png') }
     ],
-    // alternatively pass an object containing additional options
+    // Multiparte con opciones adicionales
     multipart: {
       chunked: false,
       data: [
@@ -72,7 +75,7 @@ var opts = {
     }
   }
 
-sso.getTokenURL(opts, function (err, resutl, info){
+sso.getTokenURL(opts, function (err, result, info){
   //
 })
 ```
